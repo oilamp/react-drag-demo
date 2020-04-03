@@ -7,7 +7,7 @@ import EditorPane from '../../components/EditorPane'
 import logo from './logo.svg';
 
 function App() {
-  const [state, dispatch] = useReducer(AppReducer, { els: [], activeUUID: '' });
+  const [state, dispatch] = useReducer(AppReducer, { els: [], activeUUID: '', dragEl: null });
   return (
     <AppContext.Provider value={{
       state,

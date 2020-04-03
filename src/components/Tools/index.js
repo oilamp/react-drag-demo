@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import './Tools.css';
 import AppContext from '../../utils/context';
 import ComponentItem from '../ComponentItem';
-import { getPluginsClass } from '../../plugins';
+import { getPluginProps } from '../../plugins';
 import { getElementConfig } from '../../plugins/pluginConfig';
 import textLogo from './text.svg';
 
@@ -16,17 +16,6 @@ const componentList = [
 
 function Tools() {
   const { state, dispatch } = useContext(AppContext);
-
-  function getPluginProps (elName) {
-    let elComponentData = getPluginsClass(elName);
-    if (!elComponentData) return {};
-    let props = {}
-    const { defaultPorps } = elComponentData;
-    for (let key in defaultPorps) {
-      props[key] = defaultPorps[key];
-    }
-    return props;
-  }
 
   function handleItemClick (item) {
     let props = getPluginProps(item.name);

@@ -13,3 +13,14 @@ export function getPlugins (el) {
 export function getPluginsClass (elName) {
     return components[elName];
 }
+
+export function getPluginProps (elName) {
+    let elComponentData = getPluginsClass(elName);
+    if (!elComponentData) return {};
+    let props = {}
+    const { defaultPorps } = elComponentData;
+    for (let key in defaultPorps) {
+      props[key] = defaultPorps[key];
+    }
+    return props;
+  }

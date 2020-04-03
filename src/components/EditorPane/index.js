@@ -1,9 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import './EditorPane.css';
-import AppContext from '../../utils/context'
-import EditorShape from '../EditorShape'
+import AppContext from '../../utils/context';
+import EditorShape from '../EditorShape';
 import { getPlugins } from '../../plugins';
-
 
 function EditorPane() {
   const { state, dispatch } = useContext(AppContext);
@@ -15,6 +14,22 @@ function EditorPane() {
     el.commonStyle = {...pos};
     dispatch({type: 'els_change', el});
   }
+
+  useEffect(() => {
+    // Update the document title using the browser API
+    function handleDelete(e) {
+      e.preventDefault();
+      if (e.keyCode === 46 && !!state.activeUUID) {
+        dispatch({type: 'els_remove', uuid: state.activeUUID});
+        dispatch({type: 'uuid_change', uuid: ''});
+      }
+    }
+    document.addEventListener('keyup', handleDelete);
+    return function cleanup () {
+      document.removeEventListener('keyup', handleDelete);
+    }
+  });
+
   return (
     <div className="EditorPane" onClick={() => dispatch({ type: 'uuid_change', uuid: '' })}>
       <div className="EditorPaneInner">
