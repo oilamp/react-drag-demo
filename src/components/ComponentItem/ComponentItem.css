@@ -1,0 +1,27 @@
+.ComponentItem {
+  width: 50%;
+  padding: 0 10px;
+  text-align: center;
+  box-sizing: border-box;
+}
+.ComponentItemWrap{
+  color: #424242;
+  text-align: center;
+  background: #f4f4f4;
+  padding: 10px 0;
+  border: 1px solid #dddddd;
+  font-size: 12px;
+  cursor: pointer;
+  transition: All 0.3s ease-in-out;
+}
+.ComponentItemWrap:hover{
+  background-color: #fff;
+}
+.ComponentIcon{
+  width: 15px;
+  vertical-align: top;
+}
+.ComponentTitle{
+  margin-bottom: 0;
+}
+

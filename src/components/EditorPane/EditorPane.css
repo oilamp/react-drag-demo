@@ -1,0 +1,22 @@
+.EditorPane {
+  flex: 1;
+  height: calc(100vh - 80);
+}
+.EditorPaneInner{
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.EditorPaneMain{
+  position: relative;
+  width: 960px;
+  height: 540px;
+  background-color: #fff;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZAgMAAAC5h23wAAAAAXNSR0IB2cksfwAAAAlQTFRF9fX18PDwAAAABQ8/pgAAAAN0Uk5T/yIA41y2EwAAABhJREFUeJxjYIAC0VAQcGCQWgUCDUONBgDH8Fwzu33LswAAAABJRU5ErkJggg==");
+  margin: 25px auto;
+  box-shadow: 0 3px 10px #dcdcdc;
+  border-radius: 3px;
+}
